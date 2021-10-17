@@ -1,8 +1,8 @@
-# BLOCKS Metadata Module
+# BLOCKS Verification Module
 
 This proof of concept application creates a unique hash for uploaded files. This hash is stored in local storage and immutably on BLOCKS. The hashes can be compared to determine authenticity or modifications to a file.
 
-# Use Cases for BLOCKS Metadata Transactions
+# Use Cases for BLOCKS Verification Tools
 
 - Data security and verification tools
 - Immutable data storage

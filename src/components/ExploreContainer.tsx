@@ -50,16 +50,20 @@ const ExploreContainer: React.FC<ContainerProps> = () => {
       const contract = new ethers.Contract(blocksData.blocksAddress, blocksData.blocksAbi, provider);
       let contractSigner = contract.connect(signer);
 
+      //For xDAI Network use: blocksData.blocksXdaiAddress ^.
+      //For Polygon Network use: blocksData.blocksPolygonAddress ^.
+
+
       //Define the data you want to insert on-chain and convert to hex
       let dataConverted = web3Utils.toHex(fileData);
 
       //You can send any amount of BLOCKS tokens with the transaction. BigNumber helps JavaScript deal with large numbers involving BLOCKS' 18 decimals. In this case we are sending 2 BLOCKS.
-      // let amount = new BigNumber(2000000000000000000);
-      // console.log(amount.toFixed())
+      let amount = new BigNumber(2000000000000000000);
+      console.log(amount.toFixed())
 
       //Now you can call the "send" function by entering a receiving address, amount and the converted data.
       let receivingAddress = "0xf0e3ea754D038b979CD0124e2f1A4Bf44f32746a"
-      contractSigner.send(receivingAddress, 0, dataConverted).then((tx: any)=>{
+      contractSigner.send(receivingAddress, amount.toFixed(), dataConverted).then((tx: any)=>{
         if(tx){
           //View the transaction response and get the transaction hash
           console.log(tx)
